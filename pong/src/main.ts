@@ -270,7 +270,8 @@ class Ball {
   reset() {
     const pos = v2(this.game.width() / 2, this.game.height() / 2);
     this.pos = { prev: pos.clone(), current: pos.clone() };
-    this.vel = v2(this.speed, 0);
+    this.speed = 7.5;
+    this.vel = v2((Math.random() > 0.5 ? 1 : -1) * this.speed, 0);
     this.circle.center = pos.clone();
   }
 }
