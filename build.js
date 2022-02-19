@@ -15,7 +15,7 @@ const games = ["pong"];
 
 for (const game of games) {
   console.log(`Building ${game}...`);
-  proc.execSync(`cd ${game} && yarn build`, { stdio: "inherit" });
+  proc.execSync(`cd ${game} && yarn install && yarn build`, { stdio: "inherit" });
   fs.cpSync(`${game}/dist`, `build/${game}`, { recursive: true });
   fs.writeFileSync(
     `build/${game}/index.html`,
