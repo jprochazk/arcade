@@ -1,5 +1,5 @@
 - [Pong](./pong)
-- Dino game
+- [Dino game](./dino-game)
 - Snake
 - Pac-Man
 - Tower Defense

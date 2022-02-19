@@ -8,7 +8,9 @@ const lerp = (a: number, b: number, t: number) => a + t * (b - a);
 class Entity {
   constructor(readonly game: Game) {}
   update() {}
-  draw(t: number) {}
+  draw(t: number) {
+    void t;
+  }
   reset() {}
 }
 

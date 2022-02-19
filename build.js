@@ -11,7 +11,7 @@ if (fs.existsSync("build")) {
 }
 fs.mkdirSync("build");
 
-const games = ["pong"];
+const games = ["pong", "dino-game"];
 
 for (const game of games) {
   console.log(`Building ${game}...`);
@@ -25,7 +25,7 @@ for (const game of games) {
 }
 
 console.log("Writing index.html");
-const links = `<ul>${games.map((game) => `<li><a href="${game}">${game}</a></li>`)}</ul>`;
+const links = `<ul>${games.map((game) => `<li><a href="${game}">${game}</a></li>`).join("")}</ul>`;
 fs.writeFileSync(
   "build/index.html",
   fs.readFileSync("./index.template.html", "utf-8").replace("{{LINKS}}", links),
