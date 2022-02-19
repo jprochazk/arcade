@@ -1,8 +1,8 @@
-Pong
-Breakout
-Snake
-Pac-Man
-Tower Defense
-Dino game
+- Pong
+- Breakout
+- Snake
+- Pac-Man
+- Tower Defense
+- Dino game
 
-Asteroids
+- Asteroids
