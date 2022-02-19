@@ -1,7 +1,6 @@
 - [Pong](./pong)
-- Breakout
+- Dino game
 - Snake
 - Pac-Man
 - Tower Defense
-- Dino game
 - Asteroids
