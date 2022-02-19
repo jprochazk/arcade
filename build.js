@@ -31,5 +31,6 @@ fs.writeFileSync(
   fs.readFileSync("./index.template.html", "utf-8").replace("{{LINKS}}", links),
   "utf-8"
 );
+fs.writeFileSync("build/.nojekyll", "", "utf-8");
 
 console.log("Done");
