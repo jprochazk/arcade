@@ -2,15 +2,16 @@ import "./style.css";
 import { loop } from "uloop";
 
 // TODO: dodge really big pieces of bread by flying
+// TODO: better way to handle unloaded images
+// - width, height should be AT LEAST 1
+// - or something
 
 const lerp = (a: number, b: number, t: number) => a + t * (b - a);
 
 class Entity {
   constructor(readonly game: Game) {}
   update() {}
-  draw(t: number) {
-    void t;
-  }
+  draw(t: number) {}
   reset() {}
 }
 
@@ -178,8 +179,8 @@ class Game {
     {
       // waves
       const scale = 3;
-      const width = this.assets.wave.width * scale;
-      const height = this.assets.wave.height * scale;
+      const width = (this.assets.wave.width || 1) * scale;
+      const height = (this.assets.wave.height || 1) * scale;
       const n = Math.ceil(this.width() / width) + 1;
       const offset = width - (t % width);
       for (let i = 0; i < n; ++i) {
@@ -193,9 +194,9 @@ class Game {
     {
       // clouds
       const scale = 3;
-      const space = this.assets.cloud.width * scale * 2;
-      const width = this.assets.cloud.width * scale;
-      const height = this.assets.cloud.height * scale;
+      const space = (this.assets.cloud.width || 1) * scale * 2;
+      const width = (this.assets.cloud.width || 1) * scale;
+      const height = (this.assets.cloud.height || 1) * scale;
       const n = Math.ceil(this.width() / (space + width)) + 1;
       const offset = space + width - (t % (space + width));
       for (let i = 0; i < n; ++i) {
@@ -242,6 +243,10 @@ window._game = _game;
 
 loop(
   30,
-  () => _game.update(),
-  (t) => _game.draw(t)
+  () => {
+    _game.update();
+  },
+  (t) => {
+    _game.draw(t);
+  }
 );
